@@ -1,6 +1,7 @@
 # maijia
 
 > A Vue.js project
+https://woqi.github.io/mall/dist/index.html
 
 ## Build Setup
 
