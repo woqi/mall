@@ -2,8 +2,6 @@
 
 > A Vue.js project
 
-预览：https://woqi.github.io/mall/dist/index.html
-
 ## Build Setup
 
 ``` bash

@@ -32,7 +32,7 @@ const store = new Vuex.Store({
       state.lists = lists
     },
     setDefault(state,id){
-      let lists = JSON.parse(JSON.stringify(state.lists))//深复制
+      let lists = JSON.parse(JSON.stringify(state.lists))
       lists.forEach(item =>{
         if(item.id === id){
           item.isDefault = true
