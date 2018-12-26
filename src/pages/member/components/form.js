@@ -30,36 +30,53 @@ export default{
       this.id = ad.id
     }
   },
+  computed:{
+    lists(){
+      return this.$store.state.lists
+    }
+  },
   methods:{
     add(){
       let {name,tel,provinceValue,cityValue,districtValue,address} = this
       let data = {name,tel,provinceValue,cityValue,districtValue,address}
       if(this.type === 'add'){
-        Address.add(data).then(res=>{
-          this.$router.go(-1)//回跳
-        })
+        // Address.add(data).then(res=>{
+        //   this.$router.go(-1)//回跳
+        // })
+        this.$store.dispatch('addAction',data)
       }
       if(this.type === 'edit'){
         data.id = this.id
-        Address.update(data).then(res=>{
-          this.$router.go(-1)//回跳
-        })
+        // Address.update(data).then(res=>{
+        //   this.$router.go(-1)//回跳
+        // })
+        this.$store.dispatch('updateAction',data)
       }
     },
     remove(){
       if(window.confirm('确认删除么？')){
-        Address.remove(this.id).then(res=>{
-          this.$router.go(-1)//回跳
-        })
+        // Address.remove(this.id).then(res=>{
+        //   this.$router.go(-1)//回跳
+        // })
+        this.$store.dispatch('removeAction',this.id)
       }
     },
     setDefault(){
-      Address.setDefault(this.id).then(res=>{
-        this.$router.go(-1)//回跳
-      })
+      // Address.setDefault(this.id).then(res=>{
+      //   this.$router.go(-1)//回跳
+      // })
+      this.$store.dispatch('setDefaultAction',this.id)      
     }
   },
   watch:{
+    lists:{
+      handler(){
+        //发生变化回跳
+        this.$router.go(-1)
+      },
+      deep: true//深度监听
+      
+    },
     provinceValue(val){
       if(val === -1) return
       let list = this.addressData.list

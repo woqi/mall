@@ -31,16 +31,25 @@ import axios from 'axios';
 
 // import Address from 'js/addressService.js'
 export default {
-  data(){
-    return{
-      lists: null
+  // data(){
+  //   return{
+  //     lists: null
+  //   }
+  // },
+  computed:{
+    lists(){
+      return this.$store.state.lists//拿vuex
     }
   },
   created(){
     // Address.list().then(res=>{
     //   this.lists = res.data.lists
     // })//addressList接口为get则无法用addressService
-    this.getAddressList();
+
+    // this.getAddressList();
+    if(!this.lists){
+      this.$store.dispatch('getLists')//触发actions中的行为
+    }
   },
   methods:{
     toEdit(list){
@@ -50,11 +59,11 @@ export default {
         instance:list//传递当前地址实例
       }})
     },
-    getAddressList(){
-      axios.get(url.addressLists).then(res=>{
-        this.lists = res.data.lists
-      })
-    }
+    // getAddressList(){
+    //   axios.get(url.addressLists).then(res=>{
+    //     this.lists = res.data.lists
+    //   })
+    // }
   }
 }
 </script>
