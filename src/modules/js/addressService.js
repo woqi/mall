@@ -3,7 +3,7 @@ import url from 'js/api.js';
 import axios from 'axios';
 class Address{
   static list(){
-    return axios.get(url.addressLists)
+    return fetch(url.addressLists)
   }
   static add(data){
     return fetch(url.addressAdd, data)

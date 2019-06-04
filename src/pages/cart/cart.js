@@ -94,6 +94,16 @@ new Vue({
     this.getList();
   },
   methods:{
+    // inputChangeNumber(good,number){
+    //   let re = /^[0-9]+$/ ;
+    //   if(!number) return;
+    //   if(number <= -1 && good.number === 1) return
+    //   if(re.test(number) == true){
+    //    Cart.add(good.id).then(res=>{
+    //      good.number += number;
+    //    })
+    //   }
+    // },
     getList(){
       axios.get(url.cartList).then(res =>{
         let lists = res.data.cartList;//赋值
@@ -250,20 +260,6 @@ new Vue({
   },
   mixins: [mixin]
 })
-
-// var a = 3; 
-// var b = 2; 
-// var c = a; 
-// a=b; 
-// b=c;
-// console.log(a,b)
-
-
-
-
-
-
-
 
 
 

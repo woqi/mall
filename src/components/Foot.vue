@@ -21,7 +21,7 @@ import qs from 'qs';
 let {index} = qs.parse(location.search.substr(1))//去除问号
 
 let navConfig = [{
-  name: '有赞',
+  name: '首页',
   icon: 'icon-home',
   href: 'index.html'
 },{
